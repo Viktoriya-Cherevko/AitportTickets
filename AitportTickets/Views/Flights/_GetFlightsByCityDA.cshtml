@@ -2,20 +2,22 @@
 <div id="flights">
     <div class="container">
         <form method="post" asp-action="_GetFlightsByCityDA">
-            <select name="city" id="city">
-                @foreach (var flight in Model.AllFlights)
-                {
-                    <option>@flight.CityDeparture</option>
-                }
-            </select>
-            <div>add image with arrows</div>
-            <select name="city1" id="city1">
-                @foreach (var flight in Model.AllFlights)
-                {
-                    <option>@flight.CityArrival</option>
-                }
-            </select>
-            <button class="btn btn-primary" type="submit" id="search">search</button>
+            <div style="display:flex">
+                <select name="city" id="city">
+                    @foreach (var flight in Model.AllFlights)
+                    {
+                        <option>@flight.CityDeparture</option>
+                    }
+                </select>
+                <div><img src="~/img/arrows.svg" style="width:30px; height:30px;" /></div>
+                <select name="city1" id="city1">
+                    @foreach (var flight in Model.AllFlights)
+                    {
+                        <option>@flight.CityArrival</option>
+                    }
+                </select>
+                <button class="btn btn-primary" type="submit" id="search">search</button>
+            </div>
         </form>
     </div>
     <div class="container">
