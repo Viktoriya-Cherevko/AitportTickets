@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AitportTickets.Migrations
+namespace AirportTickets.Migrations
 {
     public partial class NewDataBase : Migration
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AitportTickets.Models
+namespace AirportTickets.Models
 {
     public class Flight
     {

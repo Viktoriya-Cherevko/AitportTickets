@@ -1,4 +1,4 @@
-﻿using AitportTickets.Services;
+﻿using AirportTickets.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AitportTickets.Controllers
+namespace AirportTickets.Controllers
 {
     public class TicketsController : Controller
     {

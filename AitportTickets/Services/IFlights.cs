@@ -1,11 +1,11 @@
-﻿using AitportTickets.Data;
-using AitportTickets.Models;
+﻿using AirportTickets.Data;
+using AirportTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AitportTickets.Services
+namespace AirportTickets.Services
 {
     public interface IFlights
     {

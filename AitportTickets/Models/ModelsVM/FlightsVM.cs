@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AitportTickets.Models.ModelsVM
+namespace AirportTickets.Models.ModelsVM
 {
     public class FlightsVM
     {

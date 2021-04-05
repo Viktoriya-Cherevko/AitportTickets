@@ -1,7 +1,7 @@
-﻿using AitportTickets.Data;
-using AitportTickets.Models;
-using AitportTickets.Models.ModelsVM;
-using AitportTickets.Services;
+﻿using AirportTickets.Data;
+using AirportTickets.Models;
+using AirportTickets.Models.ModelsVM;
+using AirportTickets.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AitportTickets.Controllers
+namespace AirportTickets.Controllers
 {
     public class FlightsController : Controller
     {

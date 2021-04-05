@@ -1,11 +1,11 @@
-﻿using AitportTickets.Models;
+﻿using AirportTickets.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AitportTickets.Data
+namespace AirportTickets.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
