@@ -7,7 +7,8 @@ namespace AitportTickets.Models.ModelsVM
 {
     public class FlightsVM
     {
-        public List<Flight> AllFlights { get; set; }
         public List<Flight> FlightsByFilter { get; set; }
+
+        public List<string> Cities { get; set; }
     }
 }

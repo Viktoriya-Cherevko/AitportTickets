@@ -1,0 +1,52 @@
+﻿<div id="flights">
+    <div>
+        @if (Model != null)
+        {
+            <table class="table table-bordered table-striped" slyle="width:100%">
+                <thread>
+                    <tr class="row">
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Time of Departure
+                        </th>
+                        <th>
+                            City of Departure
+                        </th>
+                        <th>
+                            Time of Arrival
+                        </th>
+                        <th>
+                            City of Arrival
+                        </th>
+                    </tr>
+                </thread>
+                <tbody>
+                    @foreach (var flight in Model)
+                    {
+                        <tr class="row">
+                            <td>@flight.FlightNumber</td>
+                            <td>@flight.DateTimeDeparture</td>
+                            <td>@flight.CityDeparture</td>
+                            <td>@flight.DateTimeArrival</td>
+                            <td>@flight.CityArrival</td>
+                            <td><a class="btn btn-success" asp-controller="Passengers" asp-action="Create" asp-route-Id="@flight.Id">BUY</a></td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td><a class="btn btn-warning" asp-action="Update" asp-route-Id="@flight.Id">UPDATE</a></td>
+                                <td><a class="btn btn-danger" asp-action="Delete" asp-route-Id="@flight.Id">DELETE</a></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-primary" asp-action="Create">Create New</a>
+        }
+    </div>
+</div>
+

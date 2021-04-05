@@ -26,7 +26,7 @@ namespace AitportTickets.Controllers
             FlightsVM flightsVM = new FlightsVM();
 
             flightsVM.FlightsByFilter = _flightsService.GetAllFlightsAsync().Result;
-            flightsVM.AllFlights = _flightsService.GetAllFlightsAsync().Result;
+            flightsVM.Cities = _flightsService.GetCities();
 
             return PartialView(flightsVM);
         }
@@ -47,7 +47,7 @@ namespace AitportTickets.Controllers
         //Search flight by city of departure
         public ActionResult GetFlightsByCity()
         {
-            var city = _flightsService.GetCitiesDep();
+            var city = _flightsService.GetCities();
             return View(city);
             
             //var model = _flightsService.GetAllFlightsAsync().Result;
@@ -78,9 +78,9 @@ namespace AitportTickets.Controllers
             FlightsVM flightsVM = new FlightsVM();
 
             flightsVM.FlightsByFilter = _flightsService.GetFlightByCityOfDepadtureAndArrivalAsync(city, city1).Result;
-            flightsVM.AllFlights = _flightsService.GetAllFlightsAsync().Result;
+            flightsVM.Cities = _flightsService.GetCities();
 
-            return PartialView(flightsVM);
+            return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
         //[HttpPost]

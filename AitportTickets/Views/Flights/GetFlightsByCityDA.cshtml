@@ -2,15 +2,15 @@
 <div class="container">
     <form method="post" asp-action="GetFlightsByCityDA">
         <select name="city">
-            @foreach (var flight in Model.AllFlights)
+            @foreach (var city in Model.Cities)
             {
-                <option>@flight.CityDeparture</option>
+                <option>@city</option>
             }
         </select>
         <select name="city1">
-            @foreach (var flight in Model.AllFlights)
+            @foreach (var city in Model.Cities)
             {
-                <option>@flight.CityArrival</option>
+                <option>@city</option>
             }
         </select>
         <button class="btn btn-primary" type="submit">search</button>

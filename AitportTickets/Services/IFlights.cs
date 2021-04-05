@@ -17,7 +17,7 @@ namespace AitportTickets.Services
 
         public Task<List<Flight>> GetFlightByCityOfDepadtureAndArrivalAsync(string cityD, string cityA);
 
-        public List<string> GetCitiesDep();
+        public List<string> GetCities();
 
 
         public void Create(Flight obj);

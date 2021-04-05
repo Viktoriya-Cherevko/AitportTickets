@@ -56,10 +56,16 @@ namespace AitportTickets.Services
 
         #endregion
 
-        public List<string> GetCitiesDep()
+        public List<string> GetCities()
         {
-            var cityDep = _applicatioDbContext.Flights.Select(x => x.CityDeparture).Distinct().ToList();
-            return cityDep;
+            List<string> cityDep = _applicatioDbContext.Flights.Select(x => x.CityDeparture).ToList();
+            List<string> cityAr = _applicatioDbContext.Flights.Select(x => x.CityDeparture).ToList();
+            foreach (var city in cityAr)
+            {
+                cityDep.Add(city);
+            }
+            List<string> cities = cityDep.Distinct<string>().ToList();
+            return cities;
         }
 
 
