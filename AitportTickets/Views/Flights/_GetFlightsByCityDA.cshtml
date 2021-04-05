@@ -2,15 +2,15 @@
 <div @*id="flights"*@>
     <div>
         <form method="post" asp-action="_GetFlightsByCityDA">
-            <div style="display:flex">
-                <select name="city" id="city">
+            <div style="display:flex; justify-content:space-around; padding: 20px;">
+                <select name="city" id="city" style="width:200px;">
                     @foreach (var city in Model)
                     {
                         <option>@city</option>
                     }
                 </select>
                 <div><img src="~/img/arrows.svg" style="width:30px; height:30px;" /></div>
-                <select name="city1" id="city1">
+                <select name="city1" id="city1" style="width:200px;">
                     @foreach (var city in Model)
                     {
                         <option>@city</option>
