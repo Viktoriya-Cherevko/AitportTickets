@@ -61,7 +61,7 @@ namespace AirportTickets.Controllers
         {
             FlightsVM flightsVM = new FlightsVM();
             flightsVM.FlightsByFilter = _flightsService.GetFlightsByCityOfDepartureAsync(cityDep).Result;
-            return View("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
+            return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
         ////Search flight by city of departure and arrival
