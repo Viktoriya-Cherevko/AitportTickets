@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-
+//GetFlightsByCityDA
     $(document).ready(function () {
         $('select').on("change", function () {
             var city = $("#city").val();

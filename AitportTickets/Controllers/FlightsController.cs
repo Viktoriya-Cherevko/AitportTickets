@@ -47,18 +47,21 @@ namespace AirportTickets.Controllers
         //Search flight by city of departure
         public ActionResult GetFlightsByCity()
         {
-            var city = _flightsService.GetCities();
-            return View(city);
+            FlightsVM flightsVM = new FlightsVM();
+            flightsVM.Cities = _flightsService.GetCities();
+            flightsVM.FlightsByFilter = _flightsService.GetAllFlightsAsync().Result;
+            return View(flightsVM);
             
             //var model = _flightsService.GetAllFlightsAsync().Result;
             
             //return View(model);
         }
         [HttpPost]
-        public ActionResult GetFlightsByCity(string city)
+        public ActionResult GetFlightsByCity(string cityDep)
         {
-            var model = _flightsService.GetFlightsByCityOfDepartureAsync(city).Result;
-            return View("Index", model);
+            FlightsVM flightsVM = new FlightsVM();
+            flightsVM.FlightsByFilter = _flightsService.GetFlightsByCityOfDepartureAsync(cityDep).Result;
+            return View("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
         ////Search flight by city of departure and arrival
