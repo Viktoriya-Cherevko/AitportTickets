@@ -22,28 +22,8 @@
 <partial name="_TableOfFilteredFlights" model="Model.FlightsByFilter" />
 
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
 
 
-@*//GetFlightByCityOfDeparture*@
-<script>
-    $(document).ready(function () {
-        $('select').on("change", function () {
-            var cityDep = $("#cityDep").val();
-            $.ajax({
-                url: '/Flights/GetFlightsByCity/',
-                type: "POST",
-                //dataType: "json",
-                data: { cityDep: cityDep },
-                success: function (data) {
-                    //Fill div with results
-                    $("#flights").html(data);
-                },
-                error: function () {
-                    alert('Нет связи с базой данных');
-                }
-            })
-        });
-    });
-</script>
+
+
 

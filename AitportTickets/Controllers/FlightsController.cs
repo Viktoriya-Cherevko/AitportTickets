@@ -86,27 +86,21 @@ namespace AirportTickets.Controllers
             return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
-        //[HttpPost]
-        //public JsonResult _GetFlightsByCityDA(string city, string city1)
-        //{
-        //    FlightsVM flightsVM = new FlightsVM();
-
-        //    flightsVM.FlightsByFilter = _flightsService.GetFlightByCityOfDepadtureAndArrivalAsync(city, city1).Result;
-        //    flightsVM.AllFlights = _flightsService.GetAllFlightsAsync().Result;
-
-        //    return Json(flightsVM);
-        //}
-
-
+        //Search flight by date
         public ActionResult GetFlightsByDate()
         {
-            return View();
+            FlightsVM flightsVM = new FlightsVM();
+            flightsVM.FlightsByFilter = _flightsService.GetAllFlightsAsync().Result;
+            return View(flightsVM);
         }
         [HttpPost]
-        public ActionResult GetFlightsByDate(DateTime date)
+        public ActionResult GetFlightsByDate(DateTime dateOfDep)
         {
-            var model = _flightsService.GetFlightsByDateOfDepartureAsync(date).Result;
-            return View("Index", model);
+            FlightsVM flightsVM = new FlightsVM
+            {
+                FlightsByFilter = _flightsService.GetFlightsByDateOfDepartureAsync(dateOfDep).Result
+            };
+            return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
         #endregion

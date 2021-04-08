@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-//GetFlightsByCityDA
+//GetFlightsByCityDA departure and arrival
     $(document).ready(function () {
         $('select').on("change", function () {
             var city = $("#city").val();
@@ -36,3 +36,42 @@
         });
     });
 
+//GetFlightsByCity of Departure
+$(document).ready(function () {
+    $('select').on("change", function () {
+        var cityDep = $("#cityDep").val();
+        $.ajax({
+            url: '/Flights/GetFlightsByCity/',
+            type: "POST",
+            //dataType: "json",
+            data: { cityDep: cityDep },
+            success: function (data) {
+                //Fill div with results
+                $("#flights").html(data);
+            },
+            error: function () {
+                alert('Нет связи с базой данных');
+            }
+        })
+    });
+});
+
+//GetFlightsByDate
+$(document).ready(function () {
+    $('input').on("change", function () {
+        var dateOfDep = $("#dateOfDep").val();
+        $.ajax({
+            url: '/Flights/GetFlightsByDate/',
+            type: "POST",
+            //dataType: "json",
+            data: { dateOfDep: dateOfDep },
+            success: function (data) {
+                //Fill div with results
+                $("#flights").html(data);
+            },
+            error: function () {
+                alert('Нет связи с базой данных');
+            }
+        })
+    });
+});
