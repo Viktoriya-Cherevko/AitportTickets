@@ -38,7 +38,7 @@
 
 //GetFlightsByCity of Departure
 $(document).ready(function () {
-    $('select').on("change", function () {
+    $("#cityDep").on("change", function () {
         var cityDep = $("#cityDep").val();
         $.ajax({
             url: '/Flights/GetFlightsByCity/',
@@ -58,13 +58,50 @@ $(document).ready(function () {
 
 //GetFlightsByDate
 $(document).ready(function () {
-    $('input').on("change", function () {
+    $('#dateOfDep').on("change", function () {
         var dateOfDep = $("#dateOfDep").val();
         $.ajax({
             url: '/Flights/GetFlightsByDate/',
             type: "POST",
             //dataType: "json",
             data: { dateOfDep: dateOfDep },
+            success: function (data) {
+                //Fill div with results
+                $("#flights").html(data);
+            },
+            error: function () {
+                alert('Нет связи с базой данных');
+            }
+        })
+    });
+});
+
+
+//Change cities on click 
+function change() {
+    let city = $("#city").val();
+    let city1 = $("#city1").val();
+    let x = city;
+    city = city1;
+    city1 = x;
+    $("#city").val(city).change();
+    $("#city1").val(city1).change();
+
+}
+
+//GetFlightsByNumber
+$(document).ready(function () {
+    $('#getFlightByNumber').on("change", function () {
+        var number = $("#number").val();
+        var date = $("#date").val();
+        $.ajax({
+            url: '/Flights/GetFlightByNumber/',
+            type: "POST",
+            //dataType: "json",
+            data: {
+                number: number,
+                date: date
+            },
             success: function (data) {
                 //Fill div with results
                 $("#flights").html(data);

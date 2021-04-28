@@ -35,13 +35,17 @@ namespace AirportTickets.Controllers
         //Search flight by number
         public ActionResult GetFlightByNumber()
         {
-            return View();
+            FlightsVM flightsVM = new FlightsVM();
+            flightsVM.FlightsByFilter = _flightsService.GetAllFlightsAsync().Result;
+            return View(flightsVM);
+
         }
         [HttpPost]
         public ActionResult GetFlightByNumber(string number, DateTime date)
         {
-            var model = _flightsService.GetFlightsByNumberAsync(number, date).Result;
-            return View("Index", model);
+            FlightsVM flightsVM = new FlightsVM();
+            flightsVM.FlightsByFilter = _flightsService.GetFlightsByNumberAsync(number, date).Result;
+            return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
         //Search flight by city of departure
@@ -64,19 +68,9 @@ namespace AirportTickets.Controllers
             return PartialView("_TableOfFilteredFlights", flightsVM.FlightsByFilter);
         }
 
-        ////Search flight by city of departure and arrival
-        //public ActionResult GetFlightsByCityDA()
-        //{
-        //    FlightsVM flightsVM = new FlightsVM();
-
-        //    flightsVM.FlightsByFilter = _flightsService.GetAllFlightsAsync().Result;
-        //    flightsVM.AllFlights = _flightsService.GetAllFlightsAsync().Result;
-
-        //    return PartialView(flightsVM);
-        //}
         //[Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult _GetFlightsByCityDA(string city, string city1)
+        public PartialViewResult _GetFlightsByCityDA(string city, string city1)
         {
             FlightsVM flightsVM = new FlightsVM();
 

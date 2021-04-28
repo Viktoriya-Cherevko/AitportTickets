@@ -83,56 +83,47 @@
         </div> <!-- /.container -->
     </div> <!-- /.site-header -->
 
+
+
+
     <div class="page-top" id="templatemo_services">
+ 
     </div> <!-- /.page-header -->
 
-    <div class="middle-content">
+    <div class="middle-content my-5">
+        <div class="ticket-list">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="ticket-item">
+                            <h4><a class="ticket-btn" asp-controller="Flights" asp-action="GetFlightsByCity">Search flights by sity of departure</a></h4>
+                        </div> <!-- /.ticket-item -->
+                    </div> <!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="ticket-item">
+                            <h4><a class="ticket-btn" asp-controller="Flights" asp-action="GetFlightsByDate">Search flights by date of departure</a></h4>
+                        </div> <!-- /.ticket-item -->
+                    </div> <!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="ticket-item">
+                            <h4><a class="ticket-btn" asp-controller="Flights" asp-action="GetFlightByNumber">Information about flight by flight number</a></h4>
+                        </div> <!-- /.ticket-item -->
+                    </div> <!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="ticket-item">
+                            <h4><a class="ticket-btn" href="#">Flight passenger information</a></h4>
+                        </div> <!-- /.ticket-item -->
+                    </div> <!-- /.col-md-3 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.ticket-list -->
+
+
+
         <div class="container">
             @RenderBody()
         </div>
     </div> <!-- /.middle-content -->
-
-
-
-
-
-
-
-    <div class="ticket-list">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="ticket-item">
-                        <h4><a asp-controller="Flights" asp-action="GetFlightsByCity">Search flights by sity of departure</a></h4>
-                        <p>Travel HTML Template is provided by <span class="blue">template</span><span class="green">mo</span>. Download, modify and use this layout for your travel or tour websites.<br><br> Aliquam justo lectus, fermentum vitae libero sollicitudin, tincidunt accumsan magna.Vestibulum congue lorem odio, at sodales nisi luctus quis.</p>
-                        <a asp-controller="Flights" asp-action="GetFlightsByCity" class="ticket-btn">Search ticket</a>
-                    </div> <!-- /.ticket-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="ticket-item">
-                        <h4><a asp-controller="Flights" asp-action="GetFlightsByDate">Search flights by date of departure</a></h4>
-                        <p>Donec sit amet metus in quam consectetur posuere. Mauris scelerisque tortor sit amet porta lacinia. Suspendisse sit amet nisi volutpat, placerat.<br><br>Vestibulum congue lorem odio, at sodales nisi luctus quis. Suspendisse suscipit ligula libero, id consectetur magna.</p>
-                        <a asp-controller="Flights" asp-action="GetFlightsByDate" class="ticket-btn">Search ticket</a>
-                    </div> <!-- /.ticket-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="ticket-item">
-                        <h4><a asp-controller="Flights" asp-action="GetFlightByNumber">Information about flight by flight number</a></h4>
-                        <p>Suspendisse id felis ac orci dignissim efficitur non eget elit. Maecenas lacinia sodales aliquet. Maecenas consequat orci et neque convallis volutpat.<br><br> Integer viverra erat nisi, sed faucibus velit ultricies facilisis. Nam eu felis ac ex fermentum scelerisque.</p>
-                        <a asp-controller="Flights" asp-action="GetFlightByNumber" class="ticket-btn">Information about flight</a>
-                    </div> <!-- /.ticket-item -->
-                </div> <!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="ticket-item">
-                        <h4><a href="#">Flight passenger information</a></h4>
-                        <p>Aliquam ultricies eros commodo, scelerisque lorem sit amet, mollis odio. Ut malesuada sapien sit amet risus lobortis bibendum. Pellentesque eu ante augue.<br><br>Mauris vel tincidunt purus. Aenean laoreet ornare purus. Nunc condimentum augue sed massa iaculis, vel blandit.</p>
-                        <a href="#" class="ticket-btn">Flight passenger information</a>
-                    </div> <!-- /.ticket-item -->
-                </div> <!-- /.col-md-3 -->
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </div> <!-- /.ticket-list -->
-
 
 
 

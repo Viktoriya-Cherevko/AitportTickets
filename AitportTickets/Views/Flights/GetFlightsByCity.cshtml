@@ -10,13 +10,15 @@
 }
 
 <form method="post" asp-action="GetFlightsByCity">
-    <select name="cityDep" id="cityDep">
-        @foreach (var cityDep in Model.Cities)
-        {
-            <option>@cityDep</option>
-        }
-    </select>
-    <button class="btn btn-primary" type="submit">search</button>
+    <div style="margin:5px;">
+        <select name="cityDep" id="cityDep" style="width:200px;">
+            @foreach (var cityDep in Model.Cities)
+            {
+                <option>@cityDep</option>
+            }
+        </select>
+        <button style="display: none;" class="btn btn-primary" type="submit">search</button>
+    </div>
 </form>
 
 <partial name="_TableOfFilteredFlights" model="Model.FlightsByFilter" />

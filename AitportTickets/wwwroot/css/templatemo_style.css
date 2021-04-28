@@ -581,7 +581,7 @@ h3.widget-title {
 }
 
 .middle-content {
-    margin-top: 100px;
+    margin-top: 10px;
     margin-bottom: 40px;
 }
 
@@ -776,18 +776,18 @@ h4.consult-title {
 }
 
 .ticket-list {
-    margin-bottom: 70px;
+    margin-bottom: 10px;
 }
 
 .ticket-item {
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .ticket-item h4 {
     font-size: 24px;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .ticket-item a.ticket-btn {

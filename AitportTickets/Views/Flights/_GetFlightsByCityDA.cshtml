@@ -9,14 +9,14 @@
                         <option>@city</option>
                     }
                 </select>
-                <div><img src="~/img/arrows.svg" style="width:30px; height:30px;" /></div>
+                <a id="changeCities"><img id="changeCities" src="~/img/arrows.svg" style="width:30px; height:30px;" onclick="change()" /></a>
                 <select name="city1" id="city1" style="width:200px;">
                     @foreach (var city in Model)
                     {
                         <option>@city</option>
                     }
                 </select>
-                <button class="btn btn-primary" type="submit" id="search">search</button>
+                <button style="display: none;" class="btn btn-primary" type="submit" id="search">search</button>
             </div>
         </form>
     </div>

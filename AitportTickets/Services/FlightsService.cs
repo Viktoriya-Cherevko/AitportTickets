@@ -45,7 +45,7 @@ namespace AirportTickets.Services
         public async Task<List<Flight>> GetFlightsByNumberAsync(string number, DateTime date)
         {
             IQueryable<Flight> testResult = _applicatioDbContext.Flights.Where(i => i.FlightNumber == number);
-            return await testResult.Where(i => i.DateTimeDeparture == date).ToListAsync();
+            return await testResult.Where(i => i.DateTimeDeparture.Date == date.Date).ToListAsync();
         }
 
         public async Task<Flight> GetFlightsById(int id)
