@@ -31,17 +31,11 @@ namespace AirportTickets
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-<<<<<<< Updated upstream
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-=======
-            
-            
-            //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
->>>>>>> Stashed changes
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-<<<<<<< Updated upstream
-=======
+
 
 
             //services.AddAuthorization(options =>
@@ -65,7 +59,7 @@ namespace AirportTickets
             //        config.AppSecret = Configuration["Authentication:Facebook:AppSecret"]; ;
             //    });
 
->>>>>>> Stashed changes
+
             services.AddRazorPages();
             services.AddTransient<IFlights, FlightsService>();
             services.AddTransient<IPassengers, PassengersService>();
