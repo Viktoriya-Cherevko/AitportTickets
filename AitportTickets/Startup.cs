@@ -31,9 +31,41 @@ namespace AirportTickets
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+<<<<<<< Updated upstream
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+=======
+            
+            
+            //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+>>>>>>> Stashed changes
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+<<<<<<< Updated upstream
+=======
+
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("Admin", policy =>
+            //    {
+            //        policy.RequireRole("Admin");
+            //    });
+
+            //    options.AddPolicy("User", policy =>
+            //    {
+            //        policy.RequireAssertion(x => x.User.IsInRole("User")
+            //                                   || x.User.IsInRole("Admin"));
+            //    });
+            //});
+
+            //services.AddAuthentication()
+            //    .AddFacebook(config =>
+            //    {
+            //        config.AppId = Configuration["Authentication:Facebook:AppId"];
+            //        config.AppSecret = Configuration["Authentication:Facebook:AppSecret"]; ;
+            //    });
+
+>>>>>>> Stashed changes
             services.AddRazorPages();
             services.AddTransient<IFlights, FlightsService>();
             services.AddTransient<IPassengers, PassengersService>();
