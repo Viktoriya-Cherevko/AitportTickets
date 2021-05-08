@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using AirportTickets.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,18 +24,23 @@ namespace AirportTickets.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _applicatioDbContext;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext applicatioDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
+            _applicatioDbContext = applicatioDbContext;
 
         }
 
@@ -80,7 +86,16 @@ namespace AirportTickets.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    var test = _userManager.AddToRoleAsync(user, "User");
+                    if (await _roleManager.FindByNameAsync("User") == null)
+                    {
+                        var role = new IdentityRole();
+                        role.Name = "User";
+                        role.NormalizedName = "USER";
+                        await _roleManager.CreateAsync(role);
+                    }
+                    var test = await _userManager.AddToRoleAsync(user, "USER");
+
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
